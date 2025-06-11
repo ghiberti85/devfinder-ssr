@@ -1,6 +1,6 @@
 # 🚀 DevFinder SSR
 
-A web application built with **Next.js + TypeScript + Tailwind CSS**, focused on consuming the **GitHub API** using **SSR** (Server-Side Rendering) and **ISR** (Incremental Static Regeneration).
+A web application built with **Next.js + TypeScript + Tailwind CSS**, focused on consuming the **GitHub API** using modern rendering strategies like **SSR** (Server-Side Rendering) and **ISR** (Incremental Static Regeneration).
 
 This project serves as the visual and technical foundation for future portfolio sprints.
 
@@ -24,13 +24,16 @@ This project serves as the visual and technical foundation for future portfolio 
 ```
 
 📁 /src
-┣ 📁 components       → Reusable UI components (e.g. SearchForm, UserCard)
-┣ 📁 context          → Global providers (e.g. ThemeContext)
-┣ 📁 lib              → API utilities and logic
-┣ 📁 pages            → Application routes (index.tsx, user/\[username].tsx)
-┣ 📁 styles           → Global styles (globals.css)
-┣ 📄 types.d.ts       → Custom TypeScript types
-┗ 📄 README.md        → Project documentation
+┣ 📁 components → Reusable UI components (e.g. ThemeToggle, UserCard)
+┣ 📁 context → Global providers (e.g. ThemeContext)
+┣ 📁 lib → API utilities and logic
+┣ 📁 pages
+┃ ┣ 📄 index.tsx → GitHub user search (SSR)
+┃ ┗ 📁 user
+┃ ┗ 📄 \[username].tsx → GitHub profile page (ISR)
+┣ 📁 styles → Global styles (globals.css)
+┣ 📄 types.d.ts → Custom TypeScript types
+┗ 📄 README.md → Project documentation
 
 ```
 
@@ -38,11 +41,12 @@ This project serves as the visual and technical foundation for future portfolio 
 
 ## 🧱 Features
 
-- 🔎 Search GitHub users using SSR (`getServerSideProps`)
-- 👤 User profile pages generated with ISR (`getStaticProps`, `getStaticPaths`)
-- 🌙 Dark mode support with `useContext` and `Tailwind`
-- 🚫 Custom 404 page with fallback navigation
-- ✅ ESLint + Prettier + Husky pre-commit validation
+- 🔎 GitHub user search with **SSR** using `getServerSideProps`
+- 👤 GitHub profile page with **ISR** using `getStaticProps` + `getStaticPaths`
+- 🌙 Dark mode support using `Context API` + Tailwind
+- ⚙️ GitHub avatar support via `remotePatterns` in `next.config.ts`
+- 🚫 Custom 404 page with fallback handling
+- ✅ Husky + lint-staged setup for pre-commit validation
 
 ---
 
@@ -84,23 +88,11 @@ Visit: [http://localhost:3000](http://localhost:3000)
 
 ## 🔐 Environment Variables (Optional)
 
-To avoid GitHub API rate limits, you can use a personal token by creating a `.env.local` file:
+To avoid GitHub API rate limits, create a `.env.local` file and add:
 
-```
+```env
 GITHUB_TOKEN=your_personal_token_here
 ```
-
----
-
-## 📈 Sprint Planning
-
-| Sprint | Goal                                             |
-| ------ | ------------------------------------------------ |
-| 1      | Project setup with SSR, Tailwind, Hooks          |
-| 2      | UI refactor and component abstraction            |
-| 3      | Testing and performance improvements             |
-| 4      | Deploy and portfolio integration                 |
-| 5      | STAR-based documentation and interview readiness |
 
 ---
 
@@ -114,7 +106,3 @@ Senior Software Engineer · Fullstack Developer · Front-End Specialist
 ## 📄 License
 
 This project is licensed under the MIT License.
-
-```
-
-```
