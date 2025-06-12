@@ -7,10 +7,11 @@ export default function Custom404() {
       <p className="text-xl mb-6">
         Usuário não encontrado ou página inexistente.
       </p>
-      <Link href="/">
-        <a className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-          Voltar para a Home
-        </a>
+      <Link
+        href="/"
+        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+      >
+        Voltar para a Home
       </Link>
     </main>
   );
